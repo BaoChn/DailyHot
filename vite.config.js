@@ -49,17 +49,17 @@ export default defineConfig({
         ],
       },
       manifest: {
-        name: "今日热榜",
-        short_name: "DailyHot",
-        description: "汇聚全网热点，热门尽览无余",
+        name: "热搜宝",
+        short_name: "热搜宝",
+        description: "汇聚全网热榜，热点尽览无余",
         display: "standalone",
         start_url: "/",
-        theme_color: "#fff",
-        background_color: "#efefef",
+        theme_color: "#ff5d50",
+        background_color: "#ffdf99",
         icons: [
           {
             src: "/ico/favicon.png",
-            sizes: "200x200",
+            sizes: "256x256",
             type: "image/png",
           },
         ],

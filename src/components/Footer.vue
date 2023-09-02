@@ -5,8 +5,16 @@
       <n-text
         class="author"
         :depth="3"
+        v-html="packageJson.operator"
+        @click="jumpLink(packageJson.home)"
+        title="宝昌工作室💡"
+      />
+      <span> × </span>
+      <n-text
+        class="author"
+        :depth="3"
         v-html="packageJson.author"
-        @click="jumpLink(packageJson.github)"
+        @dblclick="jumpLink(packageJson.github)"
       />
     </div>
     <n-text
@@ -44,7 +52,7 @@ footer {
     margin-bottom: 4px;
     .description {
       &::after {
-        content: "@ Copyright By";
+        content: "© 2023";
         margin: 0 6px;
       }
     }

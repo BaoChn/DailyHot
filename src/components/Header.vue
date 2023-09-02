@@ -2,10 +2,10 @@
   <n-card :bordered="false" class="header" content-style="padding: 0">
     <section>
       <div class="logo" @click="router.push('/')">
-        <img src="/ico/favicon.png" alt="logo" />
+        <img src="/ico/logo.svg" alt="logo" />
         <div class="name">
-          <n-text>今日热榜</n-text>
-          <n-text :depth="3">汇聚全网热点，热门尽览无余</n-text>
+          <n-text>热搜宝</n-text>
+          <n-text :depth="3">汇聚全网热榜，热点尽览无余</n-text>
         </div>
       </div>
       <div class="current-time" v-if="store.timeData">
@@ -25,6 +25,16 @@
       </div>
       <div class="controls">
         <n-space justify="end">
+          <n-popover v-if="showRefresh">
+            <template #trigger>
+              <n-button secondary strong round @click="jumpLink(packageJson.baonav)">
+                <template #icon>
+                  <n-icon :component="Planet" />
+                </template>
+              </n-button>
+            </template>
+            返回宝站
+          </n-popover>
           <n-popover v-if="showRefresh">
             <template #trigger>
               <n-button secondary strong round @click="router.go(0)">
@@ -94,11 +104,18 @@ import {
   Refresh,
   SettingTwo,
   HamburgerButton,
+  Planet,
 } from "@icon-park/vue-next";
 import { getCurrentTime } from "@/utils/getTime.js";
 import { mainStore } from "@/store";
 import { NText, NIcon } from "naive-ui";
 import { useRouter } from "vue-router";
+
+// 链接跳转
+import packageJson from "@/../package.json";
+const jumpLink = (url) => {
+  window.open(url);
+};
 
 const router = useRouter();
 const store = mainStore();
